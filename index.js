@@ -1,6 +1,13 @@
 var express = require('express');
 var app = express();
 
+app.use((req, res, next) => {
+  if ((req.headers["x-forwarded-proto"] || "").endsWith("http")) 
+      res.redirect(`https://${req.headers.host}${req.url}`); 
+  else
+      next();
+});
+
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!!!</h1>')
 })
