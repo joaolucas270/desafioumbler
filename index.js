@@ -1,9 +1,5 @@
 var express = require('express');
-var app = express();
-var data = new Date();
-var hora = data.getHours();
-var min = data.getMinutes();
-var str_hora = hora + ':' + min;       
+var app = express();       
 
 app.use((req, res, next) => {
   if ((req.headers["x-forwarded-proto"] || "").endsWith("http")) 
@@ -13,6 +9,10 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
+    var data = new Date();
+    var hora = data.getHours();
+    var min = data.getMinutes();
+    var str_hora = hora + ':' + min;
     res.send("<h1>Hello World!!&ensp;" + str_hora + "</h1>");
 })
 
