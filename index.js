@@ -31,6 +31,7 @@ mongoose.model('alunos', Aluno)
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!!</h1>')
+  res.send("bom dia")
   Aluno.find().then((alunos) => {
     return res.json(alunos)
   }).catch((erro) => {
