@@ -20,14 +20,7 @@ mongoose.connect('mongodb://joao:backmann@mongo_bddesafionode:27017/bddesafionod
 })
 
 var Aluno = mongoose.Schema({
-  nome: {
-    type: String,
-    required: true
-  },
-  idade: {
-    type: number,
-    required: true
-  }
+ 
 })
 mongoose.model('alunos', Aluno)
 
