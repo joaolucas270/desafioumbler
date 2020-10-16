@@ -32,7 +32,7 @@ var Aluno = mongoose.Schema({
 mongoose.model('alunos', Aluno)
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hello World!!!</h1>')
+  res.send('<h1>Hello World!!</h1>')
   Aluno.find().then((alunos) => {
     res.send(alunos)
   }).catch((erro) => {
