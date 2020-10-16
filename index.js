@@ -16,7 +16,8 @@ app.get('/', (req, res) => {
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://joao:backmann@mongo_bddesafionode:27017/bddesafionode', { 
 
- useNewUrlParser: true 
+ useNewUrlParser: true,
+ useUnifiedTopology: true
 })
 .then(()=>{console.log("Mongobd Conectado...");})
 .catch((error)=>{console.log("Houve um erro: " + error);
