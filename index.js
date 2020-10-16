@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
 
 app.use((req, res, next) => {
   if ((req.headers["x-forwarded-proto"] || "").endsWith("http")) 
@@ -10,6 +11,15 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!!!</h1>')
+})
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://joao:backmann@mongo_bddesafionode:27017/bddesafionode', { 
+
+ useNewUrlParser: true 
+})
+.then(()=>{console.log("Mongobd Conectado...");})
+.catch((error)=>{console.log("Houve um erro: " + error);
 })
 
 var port = process.env.PORT || 3000;
