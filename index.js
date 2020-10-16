@@ -9,10 +9,6 @@ app.use((req, res, next) => {
       next();
 });
 
-app.get('/', (req, res) => {
-  res.send('<h1>Hello World!!!</h1>')
-})
-
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://joao:backmann@mongo_bddesafionode:27017/bddesafionode', { 
 
@@ -24,11 +20,12 @@ mongoose.connect('mongodb://joao:backmann@mongo_bddesafionode:27017/bddesafionod
 })
 
 app.get('/', (req, res) => {
-    alunos.find().then((alunos) => {
-      res.send(alunos)
-    }).catch((erro) => {
-        res.send("Alunos não encontrados.")
-    })
+  res.send('<h1>Hello World!!!</h1>')
+  alunos.find().then((alunos) => {
+    res.send(alunos)
+  }).catch((erro) => {
+      res.send("Alunos não encontrados.")
+  })
 })
 
 var port = process.env.PORT || 3000;
