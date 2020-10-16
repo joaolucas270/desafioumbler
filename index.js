@@ -1,5 +1,9 @@
 var express = require('express');
 var app = express();
+var data = new Date();
+var hora    = data.getHours();
+var min     = data.getMinutes();
+var str_hora = hora + ':' + min;       
 
 app.use((req, res, next) => {
   if ((req.headers["x-forwarded-proto"] || "").endsWith("http")) 
@@ -9,7 +13,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("<h1>Hello World</h1>")
+    res.send("<h1>Hello World</h1>", str_hora);
  })
 
 var port = process.env.PORT || 3000;
