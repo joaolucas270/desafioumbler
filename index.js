@@ -19,8 +19,16 @@ mongoose.connect('mongodb://joao:backmann@mongo_bddesafionode:27017/bddesafionod
  useNewUrlParser: true,
  useUnifiedTopology: true
 })
-.then(()=>{console.log("Mongobd Conectado...");})
+.then(()=>{console.log("Mongobd conectado com sucesso!!");})
 .catch((error)=>{console.log("Houve um erro: " + error);
+})
+
+app.get('/', (req, res) => {
+    alunos.find().then((alunos) => {
+      res.send(alunos)
+    }).catch((erro) => {
+        res.send("Alunos não encontrados.")
+    })
 })
 
 var port = process.env.PORT || 3000;
