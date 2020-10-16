@@ -13,7 +13,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("<h1>Hello World!!&ensp;" + hora + ':' + min + "</h1>");
+    res.send("<h1>Hello World!!&ensp;" + str_hora + "</h1>");
 })
 
 var port = process.env.PORT || 3000;
