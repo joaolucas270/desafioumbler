@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 var data = new Date();
-var hora    = data.getHours();
-var min     = data.getMinutes();
+var hora = data.getHours();
+var min = data.getMinutes();
 var str_hora = hora + ':' + min;       
 
 app.use((req, res, next) => {
@@ -13,8 +13,8 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("<h1>Hello World</h1>", str_hora);
- })
+    res.send("<h1>Hello World!!&ensp;" + hora + ':' + min + "</h1>");
+})
 
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
