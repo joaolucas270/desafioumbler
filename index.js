@@ -24,7 +24,7 @@ var Aluno = mongoose.Schema({
     type: String
   },
   idade: {
-    type: number
+    type: String
   }
 })
 mongoose.model('alunos', Aluno)
