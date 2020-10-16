@@ -19,12 +19,21 @@ mongoose.connect('mongodb://joao:backmann@mongo_bddesafionode:27017/bddesafionod
 .catch((error)=>{console.log("Houve um erro: " + error);
 })
 
-var AlunoSchema = mongoose.Schema({})
-mongoose.model('alunos', AlunoSchema)
+var Aluno = mongoose.Schema({
+  nome: {
+    type: String,
+    required: true
+  },
+  idade: {
+    type: Int32,
+    required: true
+  }
+})
+mongoose.model('alunos', Aluno)
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!!!</h1>')
-  AlunoSchema.find().then((alunos) => {
+  Aluno.find().then((alunos) => {
     res.send(alunos)
   }).catch((erro) => {
       res.send("Alunos não encontrados.")
