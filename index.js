@@ -31,16 +31,17 @@ mongoose.model('alunos', Aluno)
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!!</h1>')
-  res.send('<h1>Hello World!!</h1>')
-  
-  Aluno.find().then((alunos) => {
-    return res.json(alunos)
-  }).catch((erro) => {
-      return res.status(400).json({
-          error: true,
-          message: "Nenhum aluno encontrado."
-      })
-  })
+})
+
+app.get("/", (req, res) => {
+  Aluno.find({}).then((alunos) => {
+       return res.json(alunos)
+   }).catch((erro) => {
+       return res.status(400).json({
+           error: true,
+           message: "Nenhum aluno encontrado!"
+       })
+   })
 })
 
 var port = process.env.PORT || 3000;
