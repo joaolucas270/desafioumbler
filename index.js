@@ -19,9 +19,16 @@ mongoose.connect('mongodb://joao:backmann@mongo_bddesafionode:27017/bddesafionod
 .catch((error)=>{console.log("Houve um erro: " + error);
 })
 
+var AlunoSchema = mongoose.Schema({})
+mongoose.model('alunos', AlunoSchema)
+
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!!!</h1>')
-  res.send(db.alunos.find())
+  AlunoSchema.find().then((alunos) => {
+    res.send(alunos)
+  }).catch((erro) => {
+      res.send("Alunos não encontrados.")
+  })
 })
 
 var port = process.env.PORT || 3000;
