@@ -32,9 +32,12 @@ mongoose.model('alunos', Aluno)
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!!</h1>')
   Aluno.find().then((alunos) => {
-    res.send(alunos)
+    return res.json(alunos)
   }).catch((erro) => {
-      res.send("Alunos não encontrados.")
+      return res.status(400).json({
+          error: true,
+          message: "Nenhum aluno encontrado."
+      })
   })
 })
 
