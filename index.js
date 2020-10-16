@@ -25,7 +25,7 @@ var Aluno = mongoose.Schema({
     required: true
   },
   idade: {
-    type: Int32,
+    type: number,
     required: true
   }
 })
