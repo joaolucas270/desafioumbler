@@ -21,7 +21,7 @@ mongoose.connect('mongodb://joao:backmann@mongo_bddesafionode:27017/bddesafionod
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!!!</h1>')
-  res.send(db.getCollection('alunos').find({}))
+  res.send(db.alunos.find())
 })
 
 var port = process.env.PORT || 3000;
