@@ -10,8 +10,8 @@ app.use((req, res, next) => {
 
 app.get("/", (req, res) => {
     var data = new Date();
-    var hora = data.getHours();
-    var min = data.getMinutes();
+    var hora = data.getHours().toString().length < 2 ? "0" + data.getHours() : data.getHours();
+    var min = data.getMinutes().toString().length < 2 ? "0" + data.getMinutes() : data.getMinutes();
     var str_hora = hora + ':' + min;
     res.send("<h1>Hello World!!&ensp;" + str_hora + "</h1>");
 })
